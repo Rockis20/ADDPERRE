@@ -1,9 +1,54 @@
-img{
-   width: 20%;
-   display: inline-block;
+
+
+:root {
+    --font-principal: "Lato", sans-serif;
+    --font-secundària: "Raleway", sans-serif;
 }
+
+
 
 body{
     text-align: center;
     background-color: aquamarine;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-principal);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 320%;
+    margin: 30px auto;
+
+}
+
+img{
+    margin: 0 auto;
+    width: 150px;
+}
+
+input{
+    color: black;
+    background-color: aliceblue;
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin: 10px 0;
+}
+
+button{
+    color:black;
+    background-color:rgb(212, 111, 111) ;
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+
 }
