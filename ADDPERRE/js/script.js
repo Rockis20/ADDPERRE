@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref , push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref , push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 
 const input = document.getElementById("inputField");
@@ -16,9 +16,28 @@ const task = ref(baseDades, "tareas");
 
 boto.addEventListener("click", function(){
     push (task, input.value)
-    lista.innerHTML += `<li>${input.value}</li>`;
-    input.value = ""
+    clearScreem();
+   
 
 })
 
+function addElement(e){
+    lista.innerHTML += `<li>${e}</li>`;
+}
 
+function clearScreen(){
+    input.value = ""
+}
+
+function clearList(){
+    lista.innerHTML=""
+}
+
+onValue(task, function(snapshot){
+    let resultats = Object.values(snapshot.val())
+    clearList()
+    for (let i = 0; i < resultats.length; i++) {
+        let current = resultats[i]
+        addElement(current)
+    }
+})
